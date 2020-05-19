@@ -30,8 +30,8 @@ student_number = input("당신의 학번은 : ")    #2310
 grade = student_number[0];
 classroom = student_number[1];
 major = "null"; #1, 2: 뉴미디어소프트웨어, 3, 4: 뉴미디어웹솔루션, 5, 6: 뉴미디어디자인
-major_table=["뉴미디어소프트웨어", "뉴미디어소프트웨어", "뉴미디어웹솔루션", "뉴미디어웹솔루션", "뉴미디어디자인", "뉴미디어디자인"]
-major = major_table[int(classroom)-1];  #1->0, 2->1, 3->2, 4->3, 5->4, 6->5
+major_table=["뉴미디어소프트웨어", "뉴미디어웹솔루션", "뉴미디어디자인"]
+major = major_table[(int(classroom)-1)//2];  #1->0, 2->0, 3->1, 4->1, 5->2, 6->2
 
 number = student_number[2:];
 print(grade,"학년 ", major,"과 ", classroom,"반 ", number,"번입니다.")
