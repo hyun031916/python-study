@@ -8,3 +8,4 @@
 for dan in range(2,9+1):    #2-9
     for i in range(1, 9+1): #1-9
         print(dan ,"X", i, "=", (dan * i)); #i:1-9
+    print("----------")
