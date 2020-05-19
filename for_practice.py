@@ -13,11 +13,12 @@
 #N자리수의 각 자리 숫자합 출력하기 (for문 이용) 331=>7
 num = input("숫자를 입력하세요 : ")
 sum = 0
-#0-입력받은 숫자 길이-1만큼 하나씩 꺼냄 -> n
-for i in range(0, len(num)):
-    n = num[i]
-    #sum에 더하기
-    sum += int(n)
+for ch in num:
+    sum += int(ch)
+# for i in range(0, len(num)):
+#     n = num[i]
+#     #sum에 더하기
+#     sum+= int(n)
 #sum 출력
 print(sum)
 #369 게임 1 2 짝 4 5 짝 7 8 짝 10 11 12 짝
