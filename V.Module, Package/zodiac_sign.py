@@ -4,17 +4,20 @@
 # 힌트:
 # 1980년도는 원숭이 띠입니다.
 # 쥐 – 소 – 호랑이 – 토끼 – 용 – 뱀 – 말 – 양 – 원숭이 – 닭 – 개 – 돼지
-
-def zodiac_sign(birth):
-    animal = ['원숭이', '닭', '개', '돼지', '쥐', '소', '호랑이', '토끼', '용', '뱀', '말', '양']
-    arr = ""
-    num = 0
-    for i in birth:
-        if i == "-":
-            break
-        arr += i
-    num = int(arr)%12
-    return arr+"년도는 "+animal[num]+"의 해입니다."
+띠 = ['쥐', '소', '호랑이', '토끼', '용', '뱀', '말', '양', '원숭이', '닭', '개', '돼지']
+def zodiac_sign(birthday):
+    year = birthday.split('-')[0]
+    return f'{year}는 {띠[(int(year)+8) % 12]}의 해입니다.'
+    #
+    # animal = ['원숭이', '닭', '개', '돼지', '쥐', '소', '호랑이', '토끼', '용', '뱀', '말', '양']
+    # arr = ""
+    # num = 0
+    # for i in birthday:
+    #     if i == "-":
+    #         break
+    #     arr += i
+    # num = int(arr)%12
+    # return arr+"년도는 "+animal[num]+"의 해입니다."
 
 
 
