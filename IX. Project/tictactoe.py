@@ -54,6 +54,13 @@ class TictactoeGUI:
         self.images['O'] = tkinter.PhotoImage(file = 'O.gif')
         self.images['X'] = tkinter.PhotoImage(file = 'X.gif')
 
+        self.canvas.bind('<Button-1>', self.click_handler)
+
+
+    def click_handler(self, event):
+        pass
+
+
     def play(self):
         self.canvas.create_image(0, 0, anchor='nw', image=self.images['O'])
         self.canvas.create_image(200, 200, anchor='nw', image=self.images['X'])
