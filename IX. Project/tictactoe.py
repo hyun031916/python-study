@@ -1,10 +1,10 @@
 import tkinter
 
-from tictactoe_game_engine import TIctactoeGameEngine
+from tictactoe_game_engine import TictactoeGameEngine
 
 class Tictactoe:
     def __init__(self):
-        self.game_engine = TIctactoeGameEngine()
+        self.game_engine = TictactoeGameEngine()
 
     def play(self):
         print(self.game_engine) #show board
@@ -38,7 +38,7 @@ class Tictactoe:
 
 class TictactoeGUI:
     def __init__(self):
-        self.geme_engine = TIctactoeGameEngine()
+        self.game_engine = TictactoeGameEngine()
         self.init_ui()
 
     def init_ui(self):
@@ -58,12 +58,41 @@ class TictactoeGUI:
 
 
     def click_handler(self, event):
-        pass
+        x = event.x
+        y = event.y
+        #클릭 처리 => 말을 놓는다
+        col = x // 100+1
+        row = y // 100 + 1
+        self.game_engine.set(row, col)
+        #show board
+        print(self.game_engine)
+        self.draw_board()
+        #승자 결정되면 break
+        winner = self.game_engine.check_winner()
+        #결과 보여주기
+        if winner=='O':
+            print('O 이김')
+        elif winner=='X':
+            print('X 이김')
+        elif winner == 'd':
+            print('무승부')
 
+    def draw_board(self):
+        x = 0
+        y = 0
+        for i , v in enumerate(self.game_engine.board):
+            if v == '0':
+                self.canvas.create_image(x, y, anchor='nw', image=self.images['O'])
+            elif v == 'X':
+                self.canvas.create_image(x, y, anchor='nw', image = self.images['X'])
+
+            TILE_SIZE = self.CANVAS_SIZE // 3
+            x += TILE_SIZE
+            if i % 3== 2:
+                x = 0
+                y += TILE_SIZE
 
     def play(self):
-        self.canvas.create_image(0, 0, anchor='nw', image=self.images['O'])
-        self.canvas.create_image(200, 200, anchor='nw', image=self.images['X'])
         self.root.mainloop()
 
 
